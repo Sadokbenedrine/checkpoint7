@@ -1,0 +1,45 @@
+ALGORITHM probleme1
+VAR
+    t1 : ARRAY_OF INTEGER[n];
+    t2 : ARRAY_OF INTEGER[m];
+    m,n,a:INTEGER
+BEGIN
+    Write("donner longueur du t1")
+    Read(m)
+    Write("donner longueur du t2")
+    Read(n)
+    remp(t1,n)
+    remp(t2,m)
+    a:=0
+    FOR i FROM 1 TO n STEP 1  DO
+        test:=False
+        FOR j FROM 1 TO m STEP 1  DO
+            IF (t1[i]=t2[j]) THEN
+                test=True
+            END_IF
+        END_FOR
+        IF (test=False) THEN
+            a=a+t1[i]
+        END_IF
+    END_FOR
+    FOR i FROM 1 TO m STEP 1  DO
+        test:=False
+        FOR j FROM 1 TO n STEP 1  DO
+            IF (t2[i]=t1[j]) THEN
+                test=True
+            END_IF
+        END_FOR
+        IF (test=False) THEN
+            a=a+t2[i]
+        END_IF
+    END_FOR
+    Write("la somme de tous les éléments distincts est",a)
+END
+PROCEDURE remp(t,m)
+VAR
+    m:INTEGER
+BEGIN
+    FOR i FROM 1 TO m STEP 1  DO
+        Read(t[i])
+    END_FOR
+END
