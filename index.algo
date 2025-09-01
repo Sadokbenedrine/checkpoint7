@@ -1,7 +1,7 @@
 ALGORITHM probleme1
 VAR
-    t1 : ARRAY_OF INTEGER[n];
-    t2 : ARRAY_OF INTEGER[m];
+    t1 : ARRAY_OF INTEGER[];
+    t2 : ARRAY_OF INTEGER[];
     m,n,a:INTEGER
 BEGIN
     Write("donner longueur du t1")
@@ -40,6 +40,81 @@ VAR
     m:INTEGER
 BEGIN
     FOR i FROM 1 TO m STEP 1  DO
+        Read(t[i])
+    END_FOR
+END
+
+
+
+
+
+
+ALGORITHM Produit en points
+VAR
+    
+    t1,t2 : ARRAY_OF INTEGER[3];
+BEGIN
+    remp(t1)
+    remp(t2)
+    dot_product(t1,t2)
+
+END
+PROCEDURE dot_product(t1,t2)
+VAR
+    t1,t2 : ARRAY_OF INTEGER[3];
+    a := 0
+BEGIN
+    b=0
+    FOR i FROM 1 TO 3 STEP 1  DO
+        a= a + t1[i]*t2[i]
+    END_FOR
+    IF (a=0) THEN
+        Write("les deux vecteurs sont ortho")
+    ELSE
+        Write("les deux vecteurs ne sont pas ortho")
+    END_IF
+    
+END
+PROCEDURE remp(t)
+VAR
+    t : ARRAY_OF INTEGER[3];
+BEGIN
+    FOR i FROM 1 TO 3 STEP 1  DO
+        Read(t[i])
+    END_FOR
+END
+
+
+
+ALGORITHM Produit en points
+VAR
+    t1,t2 : ARRAY_OF INTEGER[3];
+    b:INTEGER:=0
+BEGIN
+    remp(t1)
+    remp(t2)
+    Write(scalaire(t1,t2))
+
+END
+FUNCTION scalaire(t1,t2) : STRING
+VAR
+    t1,t2 : ARRAY_OF INTEGER[3];
+    a := 0
+BEGIN
+    FOR i FROM 1 TO 3 STEP 1  DO
+        a= a + t1[i]*t2[i]
+    END_FOR
+    IF (a=0) THEN
+        RETURN("les deux vecteurs sont ortho")
+    ELSE
+        RETURN("les deux vecteurs ne sont pas ortho")
+    END_IF
+END
+PROCEDURE remp(t)
+VAR
+    t : ARRAY_OF INTEGER[3];
+BEGIN
+    FOR i FROM 1 TO 3 STEP 1  DO
         Read(t[i])
     END_FOR
 END
